@@ -22,7 +22,7 @@ __Cách thức hoạt động từng quá trình:__
 
 **- Pre-Processer:**  
 Quá trình biển đổi từ file các file trong chương trình (.h .c) thành file (.i)  
-Với cú pháp trong terminal tại đúng vị trí cảu folfer chương trình như sau:
+Với cú pháp trong terminal tại đúng vị trí của folder chương trình như sau:
 ```cmd
 gcc -E main.c -o main.i
 // Vì file của mình là ex1 lên mình chạy theo dòng bên dưới
