@@ -12,6 +12,6 @@ double divide(double a, double b)
 
 int main( int argc, char *argv[] )
 {
-    printf("Result: %f\n", divide(10, 2));
+    printf("Result: %f\n", divide(10, 0));
     return 0;
 }

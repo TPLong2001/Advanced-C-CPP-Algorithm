@@ -23,6 +23,6 @@ int sum(int count, ...){
 
 int main(){
     printf("Sum: %d\n", tong(4, 5, 'b', 96, 97));
-    // 97 = 'a' lên vẫn bị dừng ở  số 97
+    // 97 = 'a' lên vẫn bị dừng ở  số 97 => sum = 4 + 5 + 98 + 96 = 203
     return 0;
 }
