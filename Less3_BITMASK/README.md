@@ -35,7 +35,7 @@ Nên sử dụng __stdint.h__ khi làm việc với __hệ thống nhúng, truy�
 
 ## BITMASK 
 
-__Bitmask (mặt nạ bit)__ là một kỹ thuật trong lập trình dùng để __thao tác trên từng bit__ của dữ liệu nhị phân bằng các phép toán bitwise (AND, OR, XOR, NOT, SHIFT).  
+__Bitmask (mặt nạ bit)__ là một kỹ thuật trong lập trình dùng để __thao tác trên từng bit__ của dữ liệu nhị phân bằng các phép toán __bitwise (AND, OR, XOR, NOT, SHIFT)__.  
 
 Kỹ thuật này thường được sử dụng để lưu trữ và xử lý thông tin hiệu quả với bộ nhớ thấp, đặc biệt trong lập trình hệ thống nhúng và xử lý dữ liệu nhị phân, thực hiện các phép toán logic trên một cụm bit, và quản lý các trạng thái, quyền truy cập, hoặc các thuộc tính khác.
 
@@ -60,7 +60,7 @@ uint8_t xe_hoi;
 uint8_t nha;
 uint8_t may_bay;
 ```
-Vậy thì ta cần __6 biến__ với kích thước nhỏ nhất để lưu trữ => ta sẽ tiêu tốn 6 byte bộ nhớ.  
+Vậy thì ta cần __6 biến__ với kích thước nhỏ nhất để lưu trữ => ta sẽ tiêu tốn __6 byte__ bộ nhớ.  
 
 Trong khi đó mỗi thuộc tính thực chất chỉ cần lưu trữ __2 trạng thái (0 và 1)__ => chỉ cần __1 bit__ để có thể lưu trữ mỗi thuộc tính => __6 thuộc tính__ cần __6 bit__ để lưu trữ.  
 
@@ -76,7 +76,7 @@ uint8_t user; //0b__xxxxxx
 //bit 4: nha        => 0b__x0xxxx hoặc 0b__x1xxxx
 //bit 5: may_bay    => 0b__0xxxxx hoặc 0b__1xxxxx
 ```
-Như vậy chỉ cần tốn __1 byte__ có thể lưu trữ tất cả 6 trạng thái của __user__ ứng với từng bit trong biến.
+Như vậy chỉ cần tốn __1 byte__ có thể lưu trữ tất cả __6 thuộc tính__ của __user__ ứng với từng bit trong biến.
 
 Khi đó để thao tác với từng bit tương ứng với từng thuộc tính ta cần sử dụng các phép toán __BITWISE(AND, OR, XOR, NOT, SHIFT)__  để đặt, xóa hoặc kiểm tra trạng thái của các bit cụ thể đó.  
 
@@ -135,7 +135,7 @@ Có 4 đèn led với 2 trạng thái bật (1) và tắt (0). Mỗi đèn LED �
 
 Ta có 1 biến để điều khiển trạng thái của các đèn là ```uint8_t GPIO_Port```  
 
-Vậy để __bật đèn LED1__ thì bit đầu tiên của ```GPIO_Port``` phải được đưa lên __1__. Còn tắt thì đưa về giá trị __0__.  
+Vậy để __bật đèn LED1__ thì __bit đầu tiên__ của ```GPIO_Port``` phải được đưa lên __1__. Còn tắt thì đưa về giá trị __0__.  
 Tương tự với các __LED2, LED3, LED4__.  
 Ta sẽ dùng kỹ thuật __BITMASK (mặt nạ bit)__ kết hợp cùng với các toán tử __BITWISE__ để xử lý như sau:
 
