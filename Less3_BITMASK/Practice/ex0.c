@@ -38,14 +38,14 @@ uint8_t may_bay;
 // 6 bit này sẽ được lưu trữ trong 1 biến có kích thước 1 byte = 8 bit
 // 2 bit còn lại không sử dụng và 6 bit thấp nhất đực sử dụng để lưu trữ 6 thuộc tính
 
-uint8_t user; //0bxxxxxxxx
+uint8_t user; //0b__xxxxxx
 
-//bit 0: gender => 0bxxxxxxx1 hoặc 0bxxxxxxx0
-//bit 1: status => 0bxxxxxx0x hoặc 0bxxxxxx1x
-//bit 2: xe_may => 0bxxxxx0xx hoặc 0bxxxxx1xx
-//bit 3: xe_hoi => 0bxxxx0xxx hoặc 0bxxxx1xxx
-//bit 4: nha    => 0bxxx0xxxx hoặc 0bxxx1xxxx
-//bit 5: may_bay => 0bxx0xxxxx hoặc 0bxx1xxxxx
+//bit 0: gender     => 0b__xxxxx1 hoặc 0b__xxxxx0
+//bit 1: status     => 0b__xxxx0x hoặc 0b__xxxx1x
+//bit 2: xe_may     => 0b__xxx0xx hoặc 0b__xxx1xx
+//bit 3: xe_hoi     => 0b__xx0xxx hoặc 0b__xx1xxx
+//bit 4: nha        => 0b__x0xxxx hoặc 0b__x1xxxx
+//bit 5: may_bay    => 0b__0xxxxx hoặc 0b__1xxxxx
 
 
 
