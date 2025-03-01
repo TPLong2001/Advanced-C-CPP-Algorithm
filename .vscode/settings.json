@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "ex1_stdarg": "cpp",
-        "ex1": "cpp"
+        "ex1": "cpp",
+        "setjmp.h": "c"
     }
 }
