@@ -60,23 +60,23 @@ int main() {
     printf("\nUsing function pointer to get operation\n");
     operation op;
     op = get_operation('+');        // op = add
-    if (op != NULL) {
+    if(op != NULL) {
         op(5, 3);                   // Calls add(5, 3)
-    } else {
+    }else{
         printf("Invalid operation\n");
     }
 
     op = get_operation('-');        // op = subtract
-    if (op != NULL) {
+    if(op != NULL) {
         op(5, 3);                   // Calls subtract(5, 3)
-    } else {
+    }else{
         printf("Invalid operation\n");
     }
 
     op = get_operation('*');        // op = multiply
-    if (op != NULL) {
+    if(op != NULL) {
         op(5, 3);                   // Calls multiply(5, 3)
-    } else {
+    }else{
         printf("Invalid operation\n");
     }
 
