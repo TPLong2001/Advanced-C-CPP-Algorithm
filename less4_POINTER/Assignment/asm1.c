@@ -9,12 +9,14 @@ typedef struct {
 } SinhVien;
 
 // Hàm so sánh hai chuỗi
-int stringCompare(const char *str1, const char *str2) {
+int stringCompare(const char *str1, const char *str2) { // "hello" "hello"
     while (*str1 && (*str1 == *str2)) {
          str1++;
          str2++;
     }
     return *(const unsigned char*)str1 - *(const unsigned char*)str2;
+    // return ra 0 nếu mà giống nhau
+    // nếu mà khác nhau thì sẽ return khác 0
 }
 
 // Hàm so sánh theo tên
@@ -41,7 +43,7 @@ int compareByID(const void *a, const void *b) {
     return sv1->id - sv2->id;
 }
 
-// Hàm sắp xếp chung
+// Hàm sắp xếp chung từ bé đến lớn
 void sort(SinhVien array[], size_t size, int (*compareFunc)(const void *, const void *)) {
     int i, j;
     SinhVien temp;
@@ -86,7 +88,7 @@ int main() {
               .id = 10
          },
     };
-    size_t size = sizeof(danhSachSV) / sizeof(danhSachSV[0]);
+    size_t size = sizeof(danhSachSV) / sizeof(danhSachSV[0]);    //4
 
     // Sắp xếp theo tên
     sort(danhSachSV, size, compareByName);

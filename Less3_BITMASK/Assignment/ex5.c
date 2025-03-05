@@ -23,9 +23,9 @@ typedef uint8_t CarEngine;
 
 // Thêm các bit masks khác tùy thuộc vào tùy chọn
 // 3 bit cho các tùy chọn bổ sung
-#define SUNROOF_MASK 1 << 0         // 0001
-#define PREMIUM_AUDIO_MASK 1 << 1   // 0010
-#define SPORTS_PACKAGE_MASK 1 << 2  // 0100
+#define SUNROOF_MASK        1 << 0      // 0001
+#define PREMIUM_AUDIO_MASK  1 << 1      // 0010
+#define SPORTS_PACKAGE_MASK 1 << 2      // 0100
 
 
 
