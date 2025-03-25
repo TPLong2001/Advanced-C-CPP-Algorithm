@@ -619,7 +619,7 @@ Rear element: 50
 | **Đặc Điểm**  | **Ngăn Xếp (Stack)** | **Hàng Đợi (Queue)** |
 |--------------|-------------------|-------------------|
 | **Nguyên tắc** | LIFO (Last In, First Out) | FIFO (First In, First Out) |
-| **Thao tác chính** | Push, Pop, Peek | Enqueue, Dequeue, Peek |
+| **Thao tác chính** | Push, Pop, Peek | Enqueue, Dequeue, front, rear |
 | **Truy cập** | Truy cập phần tử cuối cùng (đỉnh) | Truy cập phần tử đầu tiên (front) |
 | **Ứng dụng** | Quản lý lời gọi hàm, xử lý dấu ngoặc, thuật toán DFS | Quản lý tác vụ, xử lý yêu cầu hệ thống, thuật toán BFS |
 | **Sử dụng** | Xử lý các tác vụ theo nguyên tắc LIFO như quản lý lời gọi hàm hoặc duyệt đồ thị theo chiều sâu | Xử lý các tác vụ theo nguyên tắc FIFO như quản lý tác vụ hoặc duyệt đồ thị theo chiều rộng |
