@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define PRINT_POP(stack)    if(peak(*stack) != STACK_EMPTY) printf("Element pop: %d\n", pop(stack));
+#define PRINT_PEAK(stack)   if(peak(stack) != STACK_EMPTY) printf("Element peak: %d\n", peak(stack));
+
 #define STACK_EMPTY -1
 
 typedef struct {
@@ -9,10 +12,6 @@ typedef struct {
     int top;
     int size;
 } Stack;
-
-#define PRINT_POP(stack)    if(peak(*stack) != STACK_EMPTY) printf("Element pop: %d\n", pop(stack));
-#define PRINT_PEAK(stack)   if(peak(stack) != STACK_EMPTY) printf("Element peak: %d\n", peak(stack));
-
 
 
 // Khởi tạo
