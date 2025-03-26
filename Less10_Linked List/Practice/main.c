@@ -46,7 +46,6 @@ int main()
     printf("Value test %d: %d\n", 4, get(arr, 4));
     printf("Size of list: %d\n", size(arr));
 
-
     pop_back(&arr);
     pop_front(&arr);
 
@@ -62,10 +61,6 @@ int main()
 
     clear(&arr);
     printList(arr);
-
-
-
-
 
 	return 0;
 }
