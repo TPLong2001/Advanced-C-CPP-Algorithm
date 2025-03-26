@@ -2,6 +2,13 @@
     "files.associations": {
         "ex1_stdarg": "cpp",
         "ex1": "cpp",
-        "setjmp.h": "c"
+        "setjmp.h": "c",
+        "queue_ring.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "format": "c",
+        "initializer_list": "c",
+        "span": "c",
+        "linkedlist.h": "c"
     }
 }

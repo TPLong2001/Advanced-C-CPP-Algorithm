@@ -13,7 +13,7 @@
 #define QUEUE_RING_H
 
 /* ==================================================[ INCLUDE FILE ]==================================================*/
-#include <stdio.h>                                            /**< Thư viện chứa hàm in ra màn hình >**/
+#include <stdio.h>                                           /**< Thư viện chứa hàm in ra màn hình >**/
 #include <stdlib.h>                                          /**< Thư viện chứa hàm malloc >**/
 
 /* ================================================[ MACRO DEFINITIONS ]================================================*/
