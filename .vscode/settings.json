@@ -9,6 +9,8 @@
         "format": "c",
         "initializer_list": "c",
         "span": "c",
-        "linkedlist.h": "c"
+        "linkedlist.h": "c",
+        "stdio.h": "c",
+        "random": "cpp"
     }
 }

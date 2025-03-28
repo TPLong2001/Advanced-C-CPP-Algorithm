@@ -1,146 +1,3 @@
-
----
-
-# BÀI 11: JSON
-
-## Tổng quan
-
-- JSON là viết tắt của "__JavaScript Object Notation__" (Ghi chú về Đối tượng JavaScript).  
-
-- Đây là một __định dạng truyền tải dữ liệu__ phổ biến trong lập trình và giao tiếp giữa các máy chủ và trình duyệt web, cũng như giữa các hệ thống khác nhau.  
-
-- JSON được thiết kế để dễ đọc và dễ viết cho con người, cũng như dễ dàng để phân tích và tạo ra cho máy tính.
-
-
-## Cấu Trúc 
-- Định dạng JSON sử dụng các cặp __key – value__ để dữ liệu sử dụng.
-- Chuỗi JSON được bao lại bởi dấu ngoặc nhọn {}.
-- Các key của JSON bắt buộc phải đặt trong dấu nháy kép “".
-- Nếu có nhiều dữ liệu thì dùng dấu phẩy , để ngăn cách.
-- Value cho phép các kiểu dữ liệu cơ bản: numbers, String, Booleans, arrays, objects, null.
-
-__Ví dụ:__
-```c
-// JSON1
-{
-  "name": "John Doe",
-  "age": 30.1234,
-  "city": "New York",
-  "isStudent": true,
-  "grades": [85, 90, 78]
-}
-
-// JSON2
-"[50.456, true, [5, "hello world"]]"
-```
-
-## Phân tích JSON (Parse JSON)
-
-Trong C, không có thư viện gốc hỗ trợ JSON. Vì vậy ta cần tự tạo ra 1 chương trình để có thể xử lý và phân tích các file JSON (parse JSON)
-
-- Đầu tiên ta cần xác định kiểu dữ liệu được lưu trũ đó là gì.
-- Tiếp theo xác định và lưu giá trị tương ứng với kiểu dữ liệu đó.
-- Ta lặp đi lặp lại cho đến khi xử lý được hết các dữ liệu trong JSON đó.
-
-__Cấu trúc lưu trữ JSON:__
-```c
-/* ===========================================[ TYPE DEFINITIONS ]==========================================*/
-/**
- * @brief   Kiểu dữ liệu của JSON.
- **/
-typedef enum {
-    JSON_NULL,                      /**< Kiểu dữ liệu null                      >**/
-    JSON_BOOLEAN,                   /**< Kiểu dữ liệu boolean  (true, false)    >**/
-    JSON_NUMBER,                    /**< Kiểu dữ liệu số       (int, double     >**/
-    JSON_STRING,                    /**< Kiểu dữ liệu chuỗi                     >**/
-    JSON_ARRAY,                     /**< Kiểu dữ liệu mảng                      >**/
-    JSON_OBJECT                     /**< Kiểu dữ liệu đối tượng                 >**/
-} JsonType;
-
-/**
- * @brief   Cấu trúc dữ liệu của JSON.
- * @details JSON là một cấu trúc dữ liệu có thể lưu trữ các kiểu dữ liệu cơ bản như 
- *          null, boolean, số, chuỗi, mảng và object.
- **/
-typedef struct JsonValue {
-    JsonType type;                  /**< Kiểu dữ liệu của JSONvalue             >**/
-    union {                         /**< Dữ liệu của JSONvalue                  >**/
-        int boolean;
-        double number;
-        char *string;
-        struct {
-            struct JsonValue *values;
-            size_t count;
-        } array;
-        struct {
-            char **keys;
-            struct JsonValue *values;
-            size_t count;
-        } object;
-    } value;
-} JsonValue;
-```
-
-__Các hàm xử lý và phân tích từng kiểu dữ liệu JSON:__
-```c
-/**
- * @brief   Phân tích giá trị null từ JSON
- * @details Hàm phân tích giá trị null từ chuỗi JSON 
- *          và trả về cấu trúc JSONNULL hoặc NULL nếu lỗi.
- * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
- * @return  JsonValue*   Con trỏ trỏ đến cấu trúc JSON_NULL hoặc NULL nếu lỗi.
- **/
-JsonValue *parse_null(const char **json);
-
-/**
- * @brief   Phân tích giá trị boolean (true/false) từ JSON
- * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
- * @return  JsonValue*   Con trỏ trỏ đến cấu trúc JSON_BOOLEAN hoặc NULL nếu lỗi.
- **/
-JsonValue *parse_boolean(const char **json);
-
-/**
- * @brief   Phân tích giá trị Number từ JSON
- * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
- * @return  JsonValue*   Con trỏ trỏ đến cấu trúc JSON_NUMBER hoặc NULL nếu lỗi.
- **/
-JsonValue *parse_number(const char **json);
-
-/**
- * @brief   Phân tích giá trị chuỗi từ JSON
- * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
- * @return  JsonValue*   Con trỏ trỏ đến cấu trúc JSON_STRING hoặc NULL nếu lỗi.
- **/
-JsonValue *parse_string(const char **json);
-
-/**
- * @brief   Phân tích giá trị mảng từ JSON
- * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
- * @return  JsonValue*   Con trỏ trỏ đến cấu trúc JSON_ARRAY hoặc NULL nếu lỗi.
- **/
-JsonValue *parse_array(const char **json);
-
-/**
- * @brief   Phân tích giá trị object từ JSON
- * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
- * @return  JsonValue*   Con trỏ trỏ đến cấu trúc JSON_OBJECT hoặc NULL nếu lỗi.
- **/
-JsonValue *parse_object(const char **json);
-
-/**
- * @brief   Phân tích tổng quát một giá trị JSONvalue.
- * @details Hàm gọi các hàm parse tương ứng với từng loại JSONvalue
- *          như: null, boolean, number, string, array, object. 
- * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
- * @return  JsonValue*   Con trỏ trỏ đến JSONvalue đã phân tích hoặc NULL nếu lỗi.
- **/
-JsonValue *parse_json(const char **json);
-```
-
-## Ví Dụ và Kết Quả của parse JSON
-
-__Ví dụ:__
-```c
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -174,6 +31,7 @@ typedef struct JsonValue {
         } object;
     } value;
 } JsonValue;
+
 
 JsonValue *parse_json(const char **json);
 
@@ -214,6 +72,7 @@ JsonValue *parse_boolean(const char **json) {
     return value;
 }
 
+
 JsonValue *parse_number(const char **json) {
     skip_whitespace(json);
     char *end;
@@ -230,6 +89,7 @@ JsonValue *parse_number(const char **json) {
     }
     return NULL;
 }
+
 
 JsonValue *parse_string(const char **json) {
     skip_whitespace(json);
@@ -259,6 +119,8 @@ JsonValue *parse_string(const char **json) {
     }
     return NULL;
 }
+
+
 
 JsonValue *parse_array(const char **json) {
     skip_whitespace(json);
@@ -328,6 +190,8 @@ JsonValue *parse_object(const char **json) {
         object_value->value.object.keys = NULL;
         object_value->value.object.values = NULL;
 
+
+
         while (**json != '}' && **json != '\0') {
             JsonValue *key = parse_string(json);
             if (key) {
@@ -370,10 +234,13 @@ JsonValue *parse_object(const char **json) {
     return NULL;
 }
 
+
 JsonValue *parse_json(const char **json) { 
     while (isspace(**json)) {
         (*json)++;
     }
+
+
 
     switch (**json) {
         case 'n':
@@ -399,10 +266,16 @@ JsonValue *parse_json(const char **json) {
             }
     }
 }
+
+
+
 ////////////
 
 
+
+
 /////////////
+
 void free_json_value(JsonValue *json_value) {
     if (json_value == NULL) {
         return;
@@ -434,6 +307,8 @@ void free_json_value(JsonValue *json_value) {
     }
 }
 
+
+
 void test(JsonValue* json_value){
     if (json_value != NULL && json_value->type == JSON_OBJECT) {
         // Truy cập giá trị của các trường trong đối tượng JSON
@@ -445,6 +320,7 @@ void test(JsonValue* json_value){
             JsonValue* value = &json_value->value.object.values[i];
 
             JsonType type = (int)(json_value->value.object.values[i].type);
+
 
             if(type == JSON_STRING){
                 printf("%s: %s\n", key, value->value.string);
@@ -471,7 +347,11 @@ void test(JsonValue* json_value){
                 } 
                 printf("\n");
             }
+
+  
         }
+
+     
     }
     else 
     {
@@ -493,7 +373,9 @@ void test(JsonValue* json_value){
                            
             }
     }
+
 }
+
 
 int main(int argc, char const *argv[])
 {
@@ -546,51 +428,20 @@ int main(int argc, char const *argv[])
     // Phân tích cú pháp chuỗi JSON
     JsonValue* json_value = parse_json(&json_str);
 
-    // Kiểm tra kết quả phân tích cú pháp
-    test(json_value);
 
-    // Giải phóng bộ nhớ được cấp phát cho JsonValue
+
+   test(json_value);
+
+    // Kiểm tra kết quả phân tích cú pháp
+
+       // Giải phóng bộ nhớ được cấp phát cho JsonValue
     free_json_value(json_value);
     
         //printf("test = %x", '\"');
+
        // hienthi(5);
+    
     return 0;
 }
-```
 
-__Kết quả:__
-```c
-1001: 
-SoPhong: 3.000000
-NguoiThue: 
-Ten: Nguyen Van A
-CCCD: 1920517781
-Tuoi: 26.000000
-ThuongTru: 
-Duong: 73 Ba Huyen Thanh Quan
-Phuong_Xa: Phuong 6
-Tinh_TP: Ho Chi Minh
-SoNguoiO: 
-1: Nguyen Van A
-2: Nguyen Van B
-3: Nguyen Van C
-TienDien: 24.000000 56.000000 98.000000 
-TienNuoc: 30.000000
-1002: 
-SoPhong: 5.000000
-NguoiThue:
-Ten: Phan Hoang Trung
-CCCD: 012345678912
-Tuoi: 24.000000
-ThuongTru:
-Duong: 53 Le Dai Hanh
-Phuong_Xa: Phuong 11
-Tinh_TP: Ho Chi Minh
-SoNguoiO:
-1: Phan Van Nhat
-2: Phan Van Nhi
-2: Phan Van Tam
-3: Phan Van Tu
-TienDien: 23.000000
-TienNuoc: 40.000000
-```
+
