@@ -126,6 +126,6 @@ int main() {
     PRINT("Hai số: %d và %d\n", 5, 8);    // Hai đối số
     PRINT("Dấu nháy: \"%s\"\n", "Hello"); // Một chuỗi
     return 0;
-}
+} 
 
 ```

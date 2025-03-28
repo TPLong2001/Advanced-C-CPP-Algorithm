@@ -1,6 +1,6 @@
 
 # Bài 6: GOTO - SETJMP
-
+ 
 ## Goto
 __"goto"__ là một từ khóa trong C, câu lệnh goto là một câu lệnh nhảy (jump) vô điều kiện.  
 

@@ -127,3 +127,4 @@ Nếu ta định biên dịch chương trình trong chế độ release (phiên 
 ```
 Khi __NDEBUG__ được định nghĩa, tất cả các lời gọi __assert__ sẽ bị loại bỏ trong quá trình biên dịch và chương trình sẽ không kiểm tra điều kiện nữa.
 
+ 

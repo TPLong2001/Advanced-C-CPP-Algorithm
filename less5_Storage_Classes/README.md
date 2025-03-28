@@ -1,7 +1,7 @@
 
 # Bài 5: STORAGE CLASSES
 
-## Cấu trúc file trong C
+## Cấu trúc file trong C 
 
 Trong lập trình C, tổ chức file hợp lý giúp mã nguồn dễ quản lý, bảo trì và mở rộng.  
 Cấu trúc phổ biến thường bao gồm __file source (.c), file header (.h)__, và đôi khi có thêm file __makefile__ hoặc thư mục phụ.  

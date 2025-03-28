@@ -233,7 +233,7 @@ __Kết quả:__
 
 Hàm tương tự như `malloc()` nhưng cấp phát bộ nhớ động và khởi tạo toàn bộ về 0.  
 
-__Cú pháp__: 
+__Cú pháp__:  
 ```c
 void *calloc(size_t num, size_t size);
 ```

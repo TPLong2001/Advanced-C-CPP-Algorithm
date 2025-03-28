@@ -204,7 +204,7 @@ The pointer is NULL
 __Con trỏ hằng, hằng con trỏ, hằng con trỏ hằng:__
 
 Từ khóa ```const``` có thể được dùng với con trỏ để tạo 3 kiểu biến sau:
-
+ 
 | Kiểu  | Cách khai báo      | Ý nghĩa       |
 |--------------|------------|------------|
 | __Con trỏ hằng__          | ```const int *ptr;```         | Giá trị mà con trỏ trỏ đến không thể thay đổi, nhưng con trỏ có thể trỏ đến địa chỉ khác. |

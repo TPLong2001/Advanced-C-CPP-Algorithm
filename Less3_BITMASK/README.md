@@ -16,7 +16,7 @@ Kiểu ```void``` Không có giá trị, dùng trong các hàm không trả về
 
 Trong C, ngoài các kiểu dữ liệu chuẩn của C, thư viện __stdint.h__ cung cấp các kiểu dữ liệu có độ dài cố định để đảm bảo tính nhất quán trên các kiến trúc phần cứng khác nhau.
 
-__Kiểu dữ liệu trong thư viện stdint.h__
+__Kiểu dữ liệu trong thư viện stdint.h__ 
 | Kiểu dữ liệu | Kích thước      | Phạm vi giá trị       |
 |--------------|------------|------------|
 | ```int8_t```   | 1 byte     | Số nguyên có dấu (-128 đến 127)  |
