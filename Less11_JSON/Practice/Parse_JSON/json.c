@@ -8,8 +8,11 @@
  * @date    2025-03-19
  * @author  LongTruong
  **********************************************************************************/
+
+/* ============================================[ INCLUDE FILE ]============================================*/
 #include "json.h"
 
+/* ========================================[ FUNCTION INPLEMENTATION ]======================================*/
 /**
  * @brief   Bỏ qua các ký tự khoảng trắng trong JSON
  * @param   json   [in, out] Con trỏ trỏ đến chuỗi JSON.
@@ -20,7 +23,6 @@ static void skip_whitespace(const char **json) {
         (*json)++;
     }
 }
-
 
 /**
  * @brief   Phân tích giá trị null từ JSON

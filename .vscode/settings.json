@@ -11,6 +11,27 @@
         "span": "c",
         "linkedlist.h": "c",
         "stdio.h": "c",
-        "random": "cpp"
-    }
+        "random": "cpp",
+        "json.h": "c",
+        "cstdint": "c",
+        "stddef.h": "c",
+        "compare": "c",
+        "charconv": "c",
+        "optional": "c",
+        "system_error": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "text_encoding": "c",
+        "typeinfo": "c",
+        "stdbool.h": "c",
+        "bs.C": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled",
+    "terminal.integrated.encoding": "utf8",
+    "terminal.integrated.env.windows": {
+        "LANG": "vi_VN.UTF-8"
+    },
+    "terminal.integrated.fontFamily": "Consolas, 'Courier New', monospace"
 }
