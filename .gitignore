@@ -1,0 +1,25 @@
+# Bỏ qua file biên dịch
+*.o
+*.obj
+*.exe
+*.out
+*.elf
+*.bin
+*.map
+
+# Bỏ qua backup file của trình soạn thảo
+*~
+*.swp
+*.swo
+
+# VSCode settings (nếu không muốn đẩy lên GitHub)
+.vscode/
+
+# Temp files
+tempCodeRunnerFile.*
+
+# Log files
+*.log
+
+# Bỏ qua thư mục build (nếu có)
+build/
