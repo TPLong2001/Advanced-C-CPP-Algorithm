@@ -264,21 +264,19 @@ int size(Node *array)
  * @return  true    Nếu danh sách rỗng.
  * @return  false   Nếu danh sách không rỗng.
  ***************************************************************************/
-bool empty(Node *array) // kiem tra list co rong hay khong
+bool empty(Node *array)
 {
     return array == NULL;
 }
 
 
 /****************************************************************************
- * @brief   Khởi tạo Hàng đợi.
- * @details Hàm này khởi tạo hàng đợi với kích thước cố định.
- *          Biến size truyền vào kích thước tối đa của hàng đợi.
- * @param   queue   con trỏ trỏ đến hàng đợi.
- * @param   size    kích thước tối đa của hàng đợi.
+ * @brief   Xóa toàn bộ các node danh sách liên kết.
+ * @details Hàm này giải phóng toàn bộ các phần tử trong danh sách liên kết
+ * @param   head   con trỏ trỏ vào đầu danh sách liên kết
  * @return  void
  ***************************************************************************/
-void clear(Node **head) // xóa toàn bộ node
+void clear(Node **head)
 {
     printf("Delete list\n");
     Node *p = *head;

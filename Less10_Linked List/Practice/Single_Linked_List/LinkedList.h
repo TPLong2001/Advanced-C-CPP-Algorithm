@@ -1,5 +1,5 @@
 /***************************************************************************
- * @file    LinkedList.c
+ * @file    LinkedList.h
  * @brief   Khai báo các hàm và cấu trúc liên quan đến danh sách liên kết đơn (single linked list)
  * @details File này cung cấp giao diện cho việc sử dụng linked list bao gồm:
  *          khởi tạo node mới, thêm, xóa các node vào các vị trí khác nhau, 

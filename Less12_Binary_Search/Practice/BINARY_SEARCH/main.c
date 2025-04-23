@@ -8,7 +8,7 @@
      /**
       * @brief   Chọn hàm sắp xếp.
       */
-     compareFunction = compareByName;
+     compareFunction = conpareByPhoneNumber;
 
 
      /**
