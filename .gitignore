@@ -12,7 +12,7 @@
 *.swp
 *.swo
 
-# VSCode settings (nếu không muốn đẩy lên GitHub)
+# VSCode settings
 .vscode/
 
 # Temp files
